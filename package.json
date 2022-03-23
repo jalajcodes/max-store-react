@@ -8,7 +8,7 @@
     "start": "node backend/server",
     "start:client": "cd frontend && yarn start",
     "build:client": "cd frontend && yarn build",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn --prefix frontend && yarn build --prefix frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd frontend && yarn && yarn build"
   },
   "author": "Jalaj Gupta",
   "license": "MIT",
