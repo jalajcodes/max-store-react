@@ -1,0 +1,264 @@
+:root {
+  --primary: #f25c39;
+  --primary-light: #f0826a;
+  --primary-dark: #f1350b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  margin: 2rem 0;
+}
+
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.main {
+  flex: 1;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.header {
+  max-height: 100vh;
+
+  .theme-switcher {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+
+    &__label {
+      display: inline-block;
+      height: 2.1rem;
+      position: relative;
+      width: 3.8rem;
+    }
+
+    &__label input {
+      display: none;
+    }
+
+    &__thumb {
+      background-color: #ccc;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: 0.4s;
+    }
+
+    &__thumb:before {
+      background-color: #fff;
+      bottom: 4px;
+      content: "";
+      height: 1.6rem;
+      left: 4px;
+      position: absolute;
+      transition: 0.4s;
+      width: 1.7rem;
+    }
+
+    &__thumb.round {
+      border-radius: 1rem;
+    }
+
+    &__thumb.round:before {
+      border-radius: 50%;
+    }
+
+    input:checked + .theme-switcher__thumb {
+      background-color: var(--primary);
+    }
+
+    input:checked + .theme-switcher__thumb:before {
+      transform: translateX(1.6rem);
+    }
+  }
+}
+
+.nav {
+  &__logo {
+    img {
+      width: 12rem;
+    }
+  }
+
+  &__search {
+    position: relative;
+    margin-right: 1rem;
+    @media screen and (max-width: 768px) {
+      margin-bottom: 1rem;
+    }
+    input {
+      width: 300px;
+      border: none;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--gray-3);
+      border-radius: 0.4rem;
+
+      &:focus {
+        border: 1px solid transparent;
+        outline: 2px solid var(--primary);
+      }
+    }
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+      position: absolute;
+      font-size: 1.2rem;
+      right: 1rem;
+      top: 0.5rem;
+    }
+  }
+  &__links {
+    order: 0;
+    .nav__link.active {
+      color: var(--primary);
+    }
+  }
+}
+
+.categories {
+  .category {
+    cursor: pointer;
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 2rem;
+    }
+    span {
+      color: var(--white);
+      font-size: 1.5rem;
+      text-align: center;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    img {
+      z-index: 5;
+      transition: all 0.5s;
+      max-width: 100%;
+    }
+    &:hover {
+      span {
+        position: absolute;
+        z-index: 10;
+        opacity: 1;
+      }
+      img {
+        filter: brightness(0.6);
+        transform: scale(1.5);
+      }
+    }
+  }
+}
+
+footer {
+  font-size: 16px;
+  background: #000;
+  padding: 2rem 4rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  .col {
+    flex: 1;
+  }
+
+  .col-title {
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .col-list a {
+    color: var(--gray-1);
+    text-decoration: none;
+    line-height: 1.4;
+    font-weight: 400;
+    transition: all 0.2s;
+
+    &:hover,
+    &:focus {
+      color: var(--primary);
+    }
+  }
+
+  .subscribe-form,
+  .social-media {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+
+  .subscribe-input {
+    width: auto;
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--gray-3);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    display: inline-block;
+    color: var(--white);
+
+    &:focus {
+      border: 1px solid transparent;
+      outline: 2px solid var(--primary);
+    }
+  }
+
+  .form-title,
+  .social-col-title {
+    font-size: 1rem;
+    color: var(--white);
+  }
+
+  .social-media {
+    flex-direction: column;
+  }
+
+  .social-media-list {
+    margin: 0;
+    display: flex;
+    gap: 0.5rem;
+  }
+}
