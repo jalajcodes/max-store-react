@@ -1,7 +1,7 @@
 const initialProductData = {
   priceRange: { min: 0, max: 9999 },
-  sortByLowAndHigh: "",
-  categoriesList: {},
+  sortByHighLow: "",
+  categories: {},
   sortByRating: "",
   productsList: [],
   loading: true,
@@ -17,7 +17,7 @@ const productReducer = (state, action) => {
       return {
         ...state,
         productsList: action.payload.products,
-        categoriesList: categories,
+        categories: categories,
         loading: false,
       };
 
@@ -36,8 +36,8 @@ const productReducer = (state, action) => {
     case "CATEGORY":
       return {
         ...state,
-        categoriesList: {
-          ...state.categoriesList,
+        categories: {
+          ...state.categories,
           ...action.payload,
         },
       };
@@ -49,12 +49,12 @@ const productReducer = (state, action) => {
       };
 
     case "CLEAR_FILTER":
-      for (const cat in state.categoriesList) {
-        state.categoriesList[cat] = false;
+      for (const cat in state.categories) {
+        state.categories[cat] = false;
       }
       return {
         sortByHighLow: "",
-        categoriesList: state.categoriesList,
+        categories: state.categories,
         sortByRating: "",
         priceRange: { min: 0, max: 9999 },
         productsList: action.payload,
