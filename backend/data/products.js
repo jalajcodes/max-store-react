@@ -20,7 +20,7 @@ const products = [
     category: "Electronics",
     price: 5999,
     countInStock: 10,
-    rating: 4.0,
+    rating: 3.0,
     numReviews: 4,
   },
   {
@@ -56,7 +56,7 @@ const products = [
     category: "Electronics",
     price: 499,
     countInStock: 7,
-    rating: 3.5,
+    rating: 5,
     numReviews: 2,
   },
   {
@@ -68,7 +68,7 @@ const products = [
     category: "Electronics",
     price: 29,
     countInStock: 0,
-    rating: 4,
+    rating: 1,
     numReviews: 4,
   },
   {
@@ -80,7 +80,7 @@ const products = [
     category: "Shoes",
     price: 2799,
     countInStock: 5,
-    rating: 4.5,
+    rating: 2.5,
     numReviews: 3,
   },
   {
@@ -92,7 +92,7 @@ const products = [
     category: "Shoes",
     price: 1799,
     countInStock: 5,
-    rating: 4,
+    rating: 3.8,
     numReviews: 1,
   },
   {
@@ -128,7 +128,7 @@ const products = [
     category: "Clothing",
     price: 1799,
     countInStock: 5,
-    rating: 4,
+    rating: 3.1,
     numReviews: 1,
   },
   {
@@ -152,7 +152,7 @@ const products = [
     category: "Clothing",
     price: 1799,
     countInStock: 5,
-    rating: 4,
+    rating: 1,
     numReviews: 1,
   },
   {
@@ -164,7 +164,7 @@ const products = [
     category: "Toys",
     price: 99,
     countInStock: 5,
-    rating: 4,
+    rating: 2,
     numReviews: 1,
   },
   {
