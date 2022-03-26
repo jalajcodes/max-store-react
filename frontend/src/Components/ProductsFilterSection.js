@@ -4,8 +4,7 @@ import RangeSlider from "./RangeSlider";
 
 const ProductsFilterSection = () => {
   const sortRef = useRef();
-  const thumbRef = useRef();
-  const { priceRange, dispatch, categoriesList, sortByRating, productsList } =
+  const { priceRange, dispatch, categories, sortByRating, productsList } =
     useProduct();
 
   const handlePriceRangeChange = (range) => {
@@ -22,7 +21,7 @@ const ProductsFilterSection = () => {
     });
   };
 
-  const handleClearFilters = (e) => {
+  const handleClearFilters = () => {
     sortRef.current.value = "DEFAULT";
     dispatch({
       type: "CLEAR_FILTER",
@@ -36,7 +35,7 @@ const ProductsFilterSection = () => {
         <h2>Filters</h2>
         <button
           className="btn btn--sm btn--outline"
-          onClick={(e) => handleClearFilters(e)}
+          onClick={handleClearFilters}
         >
           Clear All
         </button>
@@ -75,7 +74,7 @@ const ProductsFilterSection = () => {
 
       <div>
         <h4 className="text-uppercase">Categories</h4>
-        {Object.entries(categoriesList).map(([category, checked]) => {
+        {Object.entries(categories).map(([category, checked]) => {
           return (
             <label key={category} className="checkbox-container">
               <input
