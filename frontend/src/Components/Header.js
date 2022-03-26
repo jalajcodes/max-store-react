@@ -1,14 +1,14 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className="header">
       <nav className="nav">
-        <a href="/">
+        <Link to="/">
           <div className="nav__logo">
             <img src="./images/logo.png" alt="logo" />
           </div>
-        </a>
+        </Link>
         <div className="nav__links">
           <div className="nav__search">
             <input type="text" placeholder="Search" />
@@ -16,24 +16,24 @@ const Header = () => {
               <i className="fas fa-search" />
             </button>
           </div>
-          <a href="./product.html" className="nav__link">
+          <Link to="/products" className="nav__link">
             <i className="fa-solid fa-crown" />
             <span className="nav__link--text">Products</span>
-          </a>
-          <a href="./wishlist.html" className="nav__link">
+          </Link>
+          <Link to="/wishlist" className="nav__link">
             <i className="fa-solid fa-heart" />
             <span className="nav__link--text">Wishlist</span>
-          </a>
-          <a href="./cart.html" className="nav__link">
+          </Link>
+          <Link to="/cart" className="nav__link">
             <i className="fa-solid fa-bag-shopping" />
             <span className="nav__link--text">Cart</span>
-          </a>
-          <a href="./login.html" class="nav__link">
-            <button class="btn btn--primary">
-              <i class="fa-solid fa-arrow-right-to-bracket"></i>
+          </Link>
+          <Link to="/login" className="nav__link">
+            <button className="btn btn--primary">
+              <i className="fa-solid fa-arrow-right-to-bracket"></i>
               Login
             </button>
-          </a>
+          </Link>
         </div>
         <div className="theme-switcher">
           <label className="theme-switcher__label" htmlFor="checkbox">

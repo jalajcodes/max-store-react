@@ -69,15 +69,16 @@ const Home = () => {
           <div className="card vertical">
             <div className="card__image">
               <span className="badge badge-warning">Sale</span>
-              <a href="#">
+              <a href="/">
                 <img
+                  alt="product"
                   className="img-responsive"
                   src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
                 />
               </a>
             </div>
             <div className="card__content">
-              <a className="card__name" href="#">
+              <a className="card__name" href="/">
                 Men's Cotton Sweatshirt
               </a>
               <p>
@@ -103,15 +104,16 @@ const Home = () => {
           <div className="card vertical">
             <div className="card__image">
               <span className="badge badge-warning">Sale</span>
-              <a href="#">
+              <a href="/">
                 <img
+                  alt="product"
                   className="img-responsive"
                   src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
                 />
               </a>
             </div>
             <div className="card__content">
-              <a className="card__name" href="#">
+              <a className="card__name" href="/">
                 Men's Cotton Sweatshirt
               </a>
               <p>
@@ -137,15 +139,16 @@ const Home = () => {
           <div className="card vertical">
             <div className="card__image">
               <span className="badge badge-warning">Sale</span>
-              <a href="#">
+              <a href="/">
                 <img
+                  alt="product"
                   className="img-responsive"
                   src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
                 />
               </a>
             </div>
             <div className="card__content">
-              <a className="card__name" href="#">
+              <a className="card__name" href="/">
                 Men's Cotton Sweatshirt
               </a>
               <p>
@@ -171,15 +174,16 @@ const Home = () => {
           <div className="card vertical">
             <div className="card__image">
               <span className="badge badge-warning">Sale</span>
-              <a href="#">
+              <a href="/">
                 <img
+                  alt="product"
                   className="img-responsive"
                   src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
                 />
               </a>
             </div>
             <div className="card__content">
-              <a className="card__name" href="#">
+              <a className="card__name" href="/">
                 Men's Cotton Sweatshirt
               </a>
               <p>

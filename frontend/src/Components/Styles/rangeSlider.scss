@@ -1,0 +1,95 @@
+.range-slider {
+  position: relative;
+  width: 100%;
+  &__track,
+  &__range,
+  &__left-value,
+  &__right-value {
+    position: absolute;
+  }
+  &__track,
+  &__range {
+    border-radius: 3px;
+    height: 5px;
+  }
+  &__track {
+    background-color: var(--gray-1);
+    width: 100%;
+    z-index: 1;
+  }
+
+  &__range {
+    background-color: var(--primary);
+    z-index: 2;
+  }
+  &__left-value,
+  &__right-value {
+    font-size: 12px;
+    margin-top: 20px;
+  }
+
+  &__left-value {
+    left: 6px;
+  }
+
+  &__right-value {
+    right: -4px;
+  }
+}
+
+/* Removing the default appearance */
+.thumb,
+.thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.thumb {
+  pointer-events: none;
+  position: absolute;
+  height: 0;
+  width: 90%;
+  outline: none;
+  &--zindex-3 {
+    z-index: 3;
+  }
+
+  &--zindex-4 {
+    z-index: 4;
+  }
+
+  &--zindex-5 {
+    z-index: 5;
+  }
+
+  /* For Chrome browsers */
+  &::-webkit-slider-thumb {
+    background-color: var(--primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    margin-top: 2px;
+    pointer-events: all;
+    position: relative;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: var(--primary-dark);
+    }
+  }
+
+  /* For Firefox browsers */
+  &::-moz-range-thumb {
+    background-color: var(--primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    margin-top: 4px;
+    pointer-events: all;
+    position: relative;
+  }
+}
