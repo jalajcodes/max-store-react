@@ -7,17 +7,17 @@ import "../Styles/Products.scss";
 const Products = () => {
   const {
     productsList,
-    categoriesList,
-    sortByLowAndHigh,
+    categories,
+    sortByHighLow,
     sortByRating,
     priceRange,
     loading,
   } = useProduct();
 
-  const filteredData = filterByCategory([...productsList], categoriesList);
+  const filteredData = filterByCategory([...productsList], categories);
   const sortedData = sortProducts(
     [...filteredData],
-    sortByLowAndHigh,
+    sortByHighLow,
     priceRange,
     sortByRating
   );

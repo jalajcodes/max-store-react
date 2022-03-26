@@ -5,7 +5,7 @@ import "../Styles/Home.scss";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { productsList, categoriesList, dispatch } = useProduct();
+  const { productsList, categories, dispatch } = useProduct();
 
   const popularProducts = productsList
     .filter((product) => product.rating >= 4)
@@ -50,7 +50,7 @@ const Home = () => {
       <section className="categories container" id="categories">
         <h2>Categories</h2>
         <div className="categories__container grid col-autofit">
-          {Object.entries(categoriesList).map(([category, checked]) => {
+          {Object.entries(categories).map(([category, checked]) => {
             const image =
               category === "Shoes"
                 ? "shoe3.jpeg"
