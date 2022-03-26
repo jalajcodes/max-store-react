@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const connectDB = async () => {
   try {
     const URI =
-      process.env.NODE_ENV !== "production"
+      process.env.NODE_ENV === "production"
         ? process.env.MONGO_URI_PROD
         : process.env.MONGO_URI_DEV;
     const conn = await mongoose.connect(URI);
