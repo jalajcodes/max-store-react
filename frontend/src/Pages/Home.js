@@ -1,6 +1,28 @@
+import { useNavigate } from "react-router-dom";
+import ProductCard from "../Components/ProductCard";
+import { useProduct } from "../Contexts/productContext";
 import "../Styles/Home.scss";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const { productsList, categoriesList, dispatch } = useProduct();
+
+  const popularProducts = productsList
+    .filter((product) => product.rating >= 4)
+    .slice(0, 4);
+
+  const handleCategoryClick = (e, name) => {
+    dispatch({
+      type: "CLEAR_FILTER",
+      payload: productsList,
+    });
+    dispatch({
+      type: "CATEGORY",
+      payload: { [name]: true },
+    });
+    navigate(`/products`);
+  };
+
   return (
     <section className="home-page">
       <div className="cta container">
@@ -28,37 +50,30 @@ const Home = () => {
       <section className="categories container" id="categories">
         <h2>Categories</h2>
         <div className="categories__container grid col-autofit">
-          <div className="category">
-            <img
-              className="img-fluid"
-              src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSo8myjvIUUE8TlUamvPYss2ZEzqbsB_tnKNpiVotCn9OC9qLf7rHgG_QAX-S79KwQrv-nz2BACa1Nt-r9J1yrPk51vRgIVwFt2XnVqgwq11h2wC-SqTH7_&usqp=CAc"
-              alt="picsum"
-            />
-            <span>Shirts</span>
-          </div>
-          <div className="category">
-            <img
-              className="img-fluid"
-              src="https://images.unsplash.com/photo-1491927570842-0261e477d937?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-              alt="picsum"
-            />
-            <span>Electronics</span>
-          </div>
-          <div className="category">
-            <img
-              className="img-fluid"
-              src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ7OhYgBecTp7EiHOnIap9gNgPWeF3hPaIs0tExX6dxcolj-wMWjghYzxxGSdS8DVCDXC0gfMHd_797gYxe1vBNvkl5NMcIiStmiKcXMSbI&usqp=CAc"
-              alt="picsum"
-            />
-            <span>Tops</span>
-          </div>
-          <div className="category">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRCi2weNO6ZO3p_kbA6j0TnaEq8LYTyRJ8C61Gki7PLM70cWYTUNhjW2akKlG3BAPhbf1eBue6Ps37mOjgQgAblnPaYxTVe7uQ4v9tEC-E0ov8mw1AcoQXR_w&usqp=CAc"
-              alt="picsum"
-            />
-            <span>Jackets</span>
-          </div>
+          {Object.entries(categoriesList).map(([category, checked]) => {
+            const image =
+              category === "Shoes"
+                ? "shoe3.jpeg"
+                : category === "Toys"
+                ? "toy2.jpeg"
+                : category === "Clothing"
+                ? "top2.jpeg"
+                : "airpods.jpg";
+
+            return (
+              <div
+                className="category"
+                onClick={(e) => handleCategoryClick(e, category)}
+              >
+                <img
+                  className="category-image"
+                  src={`./images/${image}`}
+                  alt="picsum"
+                />
+                <span>{category}</span>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -66,146 +81,9 @@ const Home = () => {
         <h2>Popular Products</h2>
 
         <div className="grid col-autofit">
-          <div className="card vertical">
-            <div className="card__image">
-              <span className="badge badge-warning">Sale</span>
-              <a href="/">
-                <img
-                  alt="product"
-                  className="img-responsive"
-                  src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-                />
-              </a>
-            </div>
-            <div className="card__content">
-              <a className="card__name" href="/">
-                Men's Cotton Sweatshirt
-              </a>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                soluta, officia ipsum voluptatem laboriosam tenetur facilis
-                illum assumenda dolorem deserunt. Facere laboriosam accusantium
-                corrupti, repellendus ratione inventore architecto expedita
-                aliquam!
-              </p>
-              <div className="card__bottom">
-                <div className="card__price">
-                  <span>Rs. 1000</span>
-                </div>
-                <div className="card__buttons">
-                  <button className="btn btn--sm btn--primary">
-                    <i className="fas fa-shopping-cart" aria-hidden="true"></i>{" "}
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card vertical">
-            <div className="card__image">
-              <span className="badge badge-warning">Sale</span>
-              <a href="/">
-                <img
-                  alt="product"
-                  className="img-responsive"
-                  src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-                />
-              </a>
-            </div>
-            <div className="card__content">
-              <a className="card__name" href="/">
-                Men's Cotton Sweatshirt
-              </a>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                soluta, officia ipsum voluptatem laboriosam tenetur facilis
-                illum assumenda dolorem deserunt. Facere laboriosam accusantium
-                corrupti, repellendus ratione inventore architecto expedita
-                aliquam!
-              </p>
-              <div className="card__bottom">
-                <div className="card__price">
-                  <span>Rs. 1000</span>
-                </div>
-                <div className="card__buttons">
-                  <button className="btn btn--sm btn--primary">
-                    <i className="fas fa-shopping-cart" aria-hidden="true"></i>{" "}
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card vertical">
-            <div className="card__image">
-              <span className="badge badge-warning">Sale</span>
-              <a href="/">
-                <img
-                  alt="product"
-                  className="img-responsive"
-                  src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-                />
-              </a>
-            </div>
-            <div className="card__content">
-              <a className="card__name" href="/">
-                Men's Cotton Sweatshirt
-              </a>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                soluta, officia ipsum voluptatem laboriosam tenetur facilis
-                illum assumenda dolorem deserunt. Facere laboriosam accusantium
-                corrupti, repellendus ratione inventore architecto expedita
-                aliquam!
-              </p>
-              <div className="card__bottom">
-                <div className="card__price">
-                  <span>Rs. 1000</span>
-                </div>
-                <div className="card__buttons">
-                  <button className="btn btn--sm btn--primary">
-                    <i className="fas fa-shopping-cart" aria-hidden="true"></i>{" "}
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card vertical">
-            <div className="card__image">
-              <span className="badge badge-warning">Sale</span>
-              <a href="/">
-                <img
-                  alt="product"
-                  className="img-responsive"
-                  src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-                />
-              </a>
-            </div>
-            <div className="card__content">
-              <a className="card__name" href="/">
-                Men's Cotton Sweatshirt
-              </a>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                soluta, officia ipsum voluptatem laboriosam tenetur facilis
-                illum assumenda dolorem deserunt. Facere laboriosam accusantium
-                corrupti, repellendus ratione inventore architecto expedita
-                aliquam!
-              </p>
-              <div className="card__bottom">
-                <div className="card__price">
-                  <span>Rs. 1000</span>
-                </div>
-                <div className="card__buttons">
-                  <button className="btn btn--sm btn--primary">
-                    <i className="fas fa-shopping-cart" aria-hidden="true"></i>{" "}
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          {popularProducts.map((product) => (
+            <ProductCard key={product._id} productDetails={product} />
+          ))}
         </div>
       </section>
     </section>
