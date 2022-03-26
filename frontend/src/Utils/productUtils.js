@@ -31,8 +31,8 @@ export const sortProducts = (
   return products;
 };
 
-export const filterByCategory = (productsList, categoriesList) => {
-  const noCategorySelected = Object.values(categoriesList).every(
+export const filterByCategory = (productsList, categories) => {
+  const noCategorySelected = Object.values(categories).every(
     (value) => value === false
   );
 
@@ -40,8 +40,8 @@ export const filterByCategory = (productsList, categoriesList) => {
 
   return productsList.reduce((acc, product) => {
     if (
-      categoriesList.hasOwnProperty(product.category) &&
-      categoriesList[product.category]
+      categories.hasOwnProperty(product.category) &&
+      categories[product.category]
     ) {
       acc.push(product);
     }

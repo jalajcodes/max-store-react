@@ -28,13 +28,7 @@ const ProductProvider = ({ children }) => {
 
   const value = {
     dispatch: dispatch,
-    categoriesList: state.categoriesList,
-    productsList: state.productsList,
-    sortByRating: state.sortByRating,
-    priceRange: state.priceRange,
-    sliderValue: state.sliderValue,
-    sortByLowAndHigh: state.sortByHighLow,
-    loading: state.loading,
+    ...state,
   };
 
   return (
