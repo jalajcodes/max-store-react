@@ -1,6 +1,6 @@
 const products = [
   {
-    name: "Airpods Wireless Bluetooth Headphones",
+    name: "Airpods",
     image: "/images/airpods.jpg",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
@@ -12,16 +12,16 @@ const products = [
     numReviews: 4,
   },
   {
-    name: "iPhone 11 Pro 256GB Memory",
-    image: "/images/phone.jpg",
+    name: "Fidget Spinner",
+    image: "/images/toy1.webp",
     description:
-      "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
-    brand: "Apple",
-    category: "Electronics",
-    price: 5999,
-    countInStock: 10,
-    rating: 3.0,
-    numReviews: 4,
+      "This Spinner is a top that combines the best of the Yeezy Boost 350 and the best of the Boost 350 V2. The upper features a full-length, responsive design, while the laces and tongue provide comfort and support.",
+    brand: "Toy Factory",
+    category: "Toys",
+    price: 99,
+    countInStock: 5,
+    rating: 2,
+    numReviews: 1,
   },
   {
     name: "Cannon EOS 80D DSLR Camera",
@@ -34,42 +34,6 @@ const products = [
     countInStock: 5,
     rating: 3,
     numReviews: 3,
-  },
-  {
-    name: "Sony Playstation 4 Pro White Version",
-    image: "/images/playstation.jpg",
-    description:
-      "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
-    brand: "Sony",
-    category: "Electronics",
-    price: 3999,
-    countInStock: 10,
-    rating: 5,
-    numReviews: 3,
-  },
-  {
-    name: "Logitech G-Series Gaming Mouse",
-    image: "/images/mouse.jpg",
-    description:
-      "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
-    brand: "Logitech",
-    category: "Electronics",
-    price: 499,
-    countInStock: 7,
-    rating: 5,
-    numReviews: 2,
-  },
-  {
-    name: "Amazon Echo Dot 3rd Generation",
-    image: "/images/alexa.jpg",
-    description:
-      "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
-    brand: "Amazon",
-    category: "Electronics",
-    price: 29,
-    countInStock: 0,
-    rating: 1,
-    numReviews: 4,
   },
   {
     name: "NMD R1",
@@ -108,6 +72,42 @@ const products = [
     numReviews: 1,
   },
   {
+    name: "Sony Playstation 4 Pro White",
+    image: "/images/playstation.jpg",
+    description:
+      "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
+    brand: "Sony",
+    category: "Electronics",
+    price: 3999,
+    countInStock: 10,
+    rating: 5,
+    numReviews: 3,
+  },
+  {
+    name: "Logitech G-Series Gaming Mouse",
+    image: "/images/mouse.jpg",
+    description:
+      "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
+    brand: "Logitech",
+    category: "Electronics",
+    price: 499,
+    countInStock: 7,
+    rating: 5,
+    numReviews: 2,
+  },
+  {
+    name: "Amazon Echo Dot 3rd Generation",
+    image: "/images/alexa.jpg",
+    description:
+      "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
+    brand: "Amazon",
+    category: "Electronics",
+    price: 29,
+    countInStock: 0,
+    rating: 1,
+    numReviews: 4,
+  },
+  {
     name: "Skechers Classic Sneakers",
     image: "/images/shoe4.jpeg",
     description:
@@ -130,6 +130,18 @@ const products = [
     countInStock: 5,
     rating: 3.1,
     numReviews: 1,
+  },
+  {
+    name: "iPhone 11 Pro 256GB Memory",
+    image: "/images/phone.jpg",
+    description:
+      "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
+    brand: "Apple",
+    category: "Electronics",
+    price: 5999,
+    countInStock: 10,
+    rating: 3.0,
+    numReviews: 4,
   },
   {
     name: "Stylish Tops",
@@ -155,18 +167,7 @@ const products = [
     rating: 1,
     numReviews: 1,
   },
-  {
-    name: "Fidget Spinner",
-    image: "/images/toy1.webp",
-    description:
-      "The Gold Spinner is a top that combines the best of the Yeezy Boost 350 and the best of the Boost 350 V2. The upper features a full-length, responsive design, while the laces and tongue provide comfort and support.",
-    brand: "Toy Factory",
-    category: "Toys",
-    price: 99,
-    countInStock: 5,
-    rating: 2,
-    numReviews: 1,
-  },
+
   {
     name: "Gold Spinner",
     image: "/images/toy2.jpeg",
