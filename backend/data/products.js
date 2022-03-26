@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: "1",
     name: "Airpods Wireless Bluetooth Headphones",
     image: "/images/airpods.jpg",
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: 4,
   },
   {
-    _id: "2",
     name: "iPhone 11 Pro 256GB Memory",
     image: "/images/phone.jpg",
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: 4,
   },
   {
-    _id: "3",
     name: "Cannon EOS 80D DSLR Camera",
     image: "/images/camera.jpg",
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: 3,
   },
   {
-    _id: "4",
     name: "Sony Playstation 4 Pro White Version",
     image: "/images/playstation.jpg",
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: 3,
   },
   {
-    _id: "5",
     name: "Logitech G-Series Gaming Mouse",
     image: "/images/mouse.jpg",
     description:
@@ -65,7 +60,6 @@ const products = [
     numReviews: 2,
   },
   {
-    _id: "6",
     name: "Amazon Echo Dot 3rd Generation",
     image: "/images/alexa.jpg",
     description:
@@ -77,6 +71,114 @@ const products = [
     rating: 4,
     numReviews: 4,
   },
+  {
+    name: "NMD R1",
+    image: "/images/shoe1.jpeg",
+    description:
+      "The NMD R1 is a running shoe that combines the best of the NMD and the best of the R1. The upper features a full-length, responsive design, while the laces and tongue provide comfort and support.",
+    brand: "Nike",
+    category: "Shoes",
+    price: 2799,
+    countInStock: 5,
+    rating: 4.5,
+    numReviews: 3,
+  },
+  {
+    name: "Yeezy Boost 350 V2",
+    image: "/images/shoe2.jpeg",
+    description:
+      "The Yeezy Boost 350 V2 is a shoe that combines the best of the Yeezy Boost 350 and the best of the Boost 350 V2. The upper features a full-length, responsive design, while the laces and tongue provide comfort and support.",
+    brand: "Nike",
+    category: "Shoes",
+    price: 1799,
+    countInStock: 5,
+    rating: 4,
+    numReviews: 1,
+  },
+  {
+    name: "Adidas Joyride Run",
+    image: "/images/shoe3.jpeg",
+    description:
+      "The Adidas Joyride Run is a shoe that combines the best of the Yeezy Boost 350 and the best of the Boost 350 V2. The upper features a full-length, responsive design, while the laces and tongue provide comfort and support.",
+    brand: "Adidas",
+    category: "Shoes",
+    price: 1799,
+    countInStock: 5,
+    rating: 4,
+    numReviews: 1,
+  },
+  {
+    name: "Skechers Classic Sneakers",
+    image: "/images/shoe4.jpeg",
+    description:
+      "The Sketchers Classic Sneakers is a shoe that combines the best of the Yeezy Boost 350 and the best of the Boost 350 V2. The upper features a full-length, responsive design, while the laces and tongue provide comfort and support.",
+    brand: "Adidas",
+    category: "Shoes",
+    price: 1799,
+    countInStock: 5,
+    rating: 4,
+    numReviews: 1,
+  },
+  {
+    name: "Georgette Fancy Tops",
+    image: "/images/top1.jpeg",
+    description:
+      "The Stylish Tops is a top that combines the best of the Yeezy Boost 350 and the best of the Boost 350 V2. The upper features a full-length, responsive design, while the laces and tongue provide comfort and support.",
+    brand: "Dolce & Gabbana",
+    category: "Clothing",
+    price: 1799,
+    countInStock: 5,
+    rating: 4,
+    numReviews: 1,
+  },
+  {
+    name: "Stylish Tops",
+    image: "/images/top2.jpeg",
+    description:
+      "The Stylish Tops is a top that combines the best of the Yeezy Boost 350 and the best of the Boost 350 V2. The upper features a full-length, responsive design, while the laces and tongue provide comfort and support.",
+    brand: "Dolce & Gabbana",
+    category: "Clothing",
+    price: 1299,
+    countInStock: 5,
+    rating: 4.1,
+    numReviews: 2,
+  },
+  {
+    name: "Bomber Jacket",
+    image: "/images/men1.jpeg",
+    description:
+      "The Bomber Jacket is a top that combines the best of the Yeezy Boost 350 and the best of the Boost 350 V2. The upper features a full-length, responsive design, while the laces and tongue provide comfort and support.",
+    brand: "Adidas",
+    category: "Clothing",
+    price: 1799,
+    countInStock: 5,
+    rating: 4,
+    numReviews: 1,
+  },
+  {
+    name: "Fidget Spinner",
+    image: "/images/toy1.webp",
+    description:
+      "The Gold Spinner is a top that combines the best of the Yeezy Boost 350 and the best of the Boost 350 V2. The upper features a full-length, responsive design, while the laces and tongue provide comfort and support.",
+    brand: "Toy Factory",
+    category: "Toys",
+    price: 99,
+    countInStock: 5,
+    rating: 4,
+    numReviews: 1,
+  },
+  {
+    name: "Gold Spinner",
+    image: "/images/toy2.jpeg",
+    description:
+      "This Spinner is a top that combines the best of the Yeezy Boost 350 and the best of the Boost 350 V2. The upper features a full-length, responsive design, while the laces and tongue provide comfort and support.",
+    brand: "Toy Factory",
+    category: "Toys",
+    price: 199,
+    countInStock: 5,
+    rating: 4,
+    numReviews: 1,
+  },
 ];
 
-module.exports = products;
+export default products;
