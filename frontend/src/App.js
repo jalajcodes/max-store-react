@@ -3,6 +3,7 @@ import Layout from "./Components/Layout";
 import ScrollToTop from "./Components/ScrollTop";
 import Auth from "./Pages/Auth";
 import Home from "./Pages/Home";
+import Profile from "./Pages/Profile";
 import Products from "./Pages/Products";
 import "./Styles/App.scss";
 
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Layout>
       <ScrollToTop />
