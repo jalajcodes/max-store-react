@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useAuth } from "../Contexts/authContext";
+import { useToast } from "../Contexts/toastContext";
 import "../Styles/Auth.scss";
 
 const Auth = () => {
@@ -19,18 +20,20 @@ const Auth = () => {
   const navigate = useNavigate();
   const { userState, userDispatch, authenticateUser } = useAuth();
   const { loading, error, userInfo } = userState;
+  const { addToast } = useToast();
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
   const handleLogin = async (e, email, password) => {
     e.preventDefault();
     setAuthError("");
-    await authenticateUser(
+    const result = await authenticateUser(
       "login",
       email ? email : loginData.email,
       password ? password : loginData.password,
       "null"
     );
+    result && addToast({ type: "success", message: "Logged in successfully" });
   };
 
   const handleSignup = async (e) => {
@@ -42,12 +45,14 @@ const Auth = () => {
       return;
     }
 
-    await authenticateUser(
+    const result = await authenticateUser(
       "register",
       signupData.email,
       signupData.password,
       `${signupData.firstName} ${signupData.lastName}`
     );
+
+    result && addToast({ type: "success", message: "Registered successfully" });
   };
 
   useEffect(() => {
@@ -124,7 +129,9 @@ const Auth = () => {
                 }}
               />
             </div>
-            {authError && <div class="alert alert-warning">{authError}</div>}
+            {authError && (
+              <div className="alert alert-warning">{authError}</div>
+            )}
             <input type="checkbox" className="checkbox" id="remember_me" />
             <label htmlFor="remember_me">Remember me</label>
             <button
@@ -219,7 +226,9 @@ const Auth = () => {
                 }}
               />
             </div>
-            {authError && <div class="alert alert-warning">{authError}</div>}
+            {authError && (
+              <div className="alert alert-warning">{authError}</div>
+            )}
             <input
               type="submit"
               className="btn btn--primary"

@@ -4,12 +4,15 @@ import "./Styles/index.scss";
 import App from "./App";
 import { ProductProvider } from "./Contexts/productContext";
 import { AuthProvider } from "./Contexts/authContext";
+import { ToastProvider } from "./Contexts/toastContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <ProductProvider>
-        <App />
+        <ToastProvider>
+          <App />
+        </ToastProvider>
       </ProductProvider>
     </AuthProvider>
   </React.StrictMode>,
