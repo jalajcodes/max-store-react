@@ -24,13 +24,13 @@ const ProductCard = ({
   return (
     <>
       <div className="card vertical">
-        <div
-          data-tip={tooltipContent}
-          data-html="true"
-          data-class="tooltip"
-          className="card__image"
-        >
-          <span className="badge badge-warning">
+        <div className="card__image">
+          <span
+            data-tip={tooltipContent}
+            data-html="true"
+            data-class="tooltip"
+            className="badge badge-warning"
+          >
             <i className="fa-solid fa-circle-info"></i>
           </span>
           <ReactTooltip />
