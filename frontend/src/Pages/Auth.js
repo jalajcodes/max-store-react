@@ -22,13 +22,13 @@ const Auth = () => {
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e, email, password) => {
     e.preventDefault();
     setAuthError("");
     await authenticateUser(
       "login",
-      loginData.email,
-      loginData.password,
+      email ? email : loginData.email,
+      password ? password : loginData.password,
       "null"
     );
   };
@@ -134,7 +134,12 @@ const Auth = () => {
             >
               {loading ? "Loading..." : "Login"}
             </button>
-            <button className="btn btn--primary mt-1 mb-1">
+            <button
+              className="btn btn--primary mt-1 mb-1"
+              onClick={(e) => {
+                handleLogin(e, "john@maxstore.com", "test1234");
+              }}
+            >
               Login as Guest
             </button>
           </form>
