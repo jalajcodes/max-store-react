@@ -1,6 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../Contexts/authContext";
 
 const Header = () => {
+  const { userState, userDispatch } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    userDispatch({
+      type: "USER_LOGOUT",
+    });
+    navigate("/");
+  };
+
   return (
     <header className="header">
       <nav className="nav">
@@ -28,12 +40,23 @@ const Header = () => {
             <i className="fa-solid fa-bag-shopping" />
             <span className="nav__link--text">Cart</span>
           </Link>
-          <Link to="/login" className="nav__link">
-            <button className="btn btn--primary">
-              <i className="fa-solid fa-arrow-right-to-bracket"></i>
+          {userState && userState.userInfo && userState.userInfo.token ? (
+            <>
+              <Link to="/profile" className="nav__link" onClick={handleLogout}>
+                <i className="fa-solid fa-user"></i>
+                Profile
+              </Link>
+              <a href="/" className="nav__link" onClick={handleLogout}>
+                <i className="fa-solid fa-right-from-bracket"></i>
+                Logout
+              </a>
+            </>
+          ) : (
+            <Link to="/auth" className="nav__link">
+              <i className="fa-solid fa-right-to-bracket"></i>
               Login
-            </button>
-          </Link>
+            </Link>
+          )}
         </div>
         <div className="theme-switcher">
           <label className="theme-switcher__label" htmlFor="checkbox">
