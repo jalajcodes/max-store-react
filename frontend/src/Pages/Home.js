@@ -62,6 +62,7 @@ const Home = () => {
 
             return (
               <div
+                key={category}
                 className="category"
                 onClick={(e) => handleCategoryClick(e, category)}
               >
