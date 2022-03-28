@@ -57,7 +57,6 @@ const Auth = () => {
 
   useEffect(() => {
     const handleTabChange = () => {
-      console.log("att");
       const tabs = document.querySelectorAll(".tabs h3 a");
 
       tabs.forEach((tab) => {
