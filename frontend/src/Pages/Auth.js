@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../Contexts/authContext";
 import { useToast } from "../Contexts/toastContext";
 import "../Styles/Auth.scss";
@@ -16,13 +15,10 @@ const Auth = () => {
   });
   const [authError, setAuthError] = useState("");
 
-  const location = useLocation();
-  const navigate = useNavigate();
-  const { userState, userDispatch, authenticateUser } = useAuth();
-  const { loading, error, userInfo } = userState;
+  const { userState, authenticateUser } = useAuth();
+  const { loading, error } = userState;
   const { addToast } = useToast();
-
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  const location = useLocation();
 
   const handleLogin = async (e, email, password) => {
     e.preventDefault();
@@ -82,10 +78,16 @@ const Auth = () => {
     if (error) {
       setAuthError(error);
     }
-    if (userInfo && userInfo.token) {
-      navigate(redirect, { replace: true });
+  }, [error]);
+
+  useEffect(() => {
+    if (location.state && location.state.showToast) {
+      addToast({
+        type: "error",
+        message: "Kindly login or create an account to continue",
+      });
     }
-  }, [userState, redirect]);
+  }, [location.state]);
 
   return (
     <div className="form-wrap">

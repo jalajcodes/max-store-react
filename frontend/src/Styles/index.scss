@@ -108,6 +108,19 @@ h2 {
     }
   }
 
+  .cart-qty {
+    color: var(--white);
+    background-color: var(--primary);
+    padding: 0.3rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-right: 0.3rem;
+  }
+
   &__search {
     position: relative;
     margin-right: 1rem;

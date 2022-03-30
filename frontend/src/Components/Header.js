@@ -1,11 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Contexts/authContext";
+import { useCart } from "../Contexts/cartContext";
 import { useToast } from "../Contexts/toastContext";
+import { getPriceInfo } from "../Utils/cartUtils";
 
 const Header = () => {
   const { userState, userDispatch } = useAuth();
   const navigate = useNavigate();
   const { addToast } = useToast();
+  const { cartItems } = useCart();
+  const { qty } = getPriceInfo(cartItems);
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -40,7 +44,11 @@ const Header = () => {
             <span className="nav__link--text">Wishlist</span>
           </Link>
           <Link to="/cart" className="nav__link">
-            <i className="fa-solid fa-bag-shopping" />
+            {qty && qty > 0 ? (
+              <span className="cart-qty">{qty}</span>
+            ) : (
+              <i className="fa-solid fa-bag-shopping" />
+            )}
             <span className="nav__link--text">Cart</span>
           </Link>
           {userState && userState.userInfo && userState.userInfo.token ? (

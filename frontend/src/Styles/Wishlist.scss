@@ -1,0 +1,23 @@
+.wishlist-page {
+  h2 {
+    text-align: center;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .card {
+    max-width: 20rem;
+  }
+  .wishlist-buttons {
+    display: flex;
+    button {
+      margin-right: 0.5rem;
+      i {
+        margin: 0;
+      }
+    }
+  }
+}
