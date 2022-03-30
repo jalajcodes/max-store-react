@@ -1,9 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Contexts/authContext";
+import { useToast } from "../Contexts/toastContext";
 
 const Header = () => {
   const { userState, userDispatch } = useAuth();
   const navigate = useNavigate();
+  const { addToast } = useToast();
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -11,6 +13,7 @@ const Header = () => {
       type: "USER_LOGOUT",
     });
     navigate("/");
+    addToast({ type: "success", message: "Logged out successfully" });
   };
 
   return (
@@ -42,7 +45,7 @@ const Header = () => {
           </Link>
           {userState && userState.userInfo && userState.userInfo.token ? (
             <>
-              <Link to="/profile" className="nav__link" onClick={handleLogout}>
+              <Link to="/profile" className="nav__link">
                 <i className="fa-solid fa-user"></i>
                 Profile
               </Link>

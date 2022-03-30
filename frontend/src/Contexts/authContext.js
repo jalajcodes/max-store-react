@@ -31,6 +31,8 @@ const AuthProvider = ({ children }) => {
         });
 
         localStorage.setItem("maxStoreUserData", JSON.stringify(data));
+
+        return true;
       } catch (error) {
         userDispatch({
           type: "USER_AUTH_FAIL",
