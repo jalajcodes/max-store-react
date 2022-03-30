@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../Contexts/cartContext";
 import { useAuth } from "../Contexts/authContext";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useToast } from "../Contexts/toastContext";
 import "./Styles/cartCard.scss";
 import { useWishlist } from "../Contexts/wishlistContext";
@@ -9,7 +9,7 @@ import { useWishlist } from "../Contexts/wishlistContext";
 const CartCard = ({
   productDetails: { product, name, price, image, description, qty },
 }) => {
-  const [qtyCounter, setQtyCounter] = useState(qty);
+  const qtyCounter = useRef(qty);
   const { addToCart, removeFromCart } = useCart();
   const { addToWishlist } = useWishlist();
   const { addToast } = useToast();
@@ -22,12 +22,12 @@ const CartCard = ({
   };
 
   const handleQuantity = (action) => {
-    if (action === "DECREMENT" && qtyCounter > 1) {
-      setQtyCounter(qtyCounter - 1);
+    if (action === "DECREMENT" && qtyCounter.current > 1) {
+      qtyCounter.current--;
     } else if (action === "INCREMENT") {
-      setQtyCounter(qtyCounter + 1);
+      qtyCounter.current++;
     }
-
+    addToCart(product, qtyCounter.current);
     return null;
   };
 
@@ -35,10 +35,6 @@ const CartCard = ({
     addToast({ type: "success", message: "Item removed from cart" });
     removeFromCart(product);
   };
-
-  useEffect(() => {
-    addToCart(product, qtyCounter);
-  }, [qtyCounter, product]);
 
   return (
     <>
@@ -59,13 +55,13 @@ const CartCard = ({
           <div className="card__actions">
             <div className="quantity-selector">
               <button
-                disabled={qtyCounter === 1}
-                className="btn btn--primary btn--sm "
+                disabled={qtyCounter.current === 1}
+                className="btn btn--primary btn--sm"
                 onClick={() => handleQuantity("DECREMENT")}
               >
                 -
               </button>
-              <span className="quantity-input">{qty}</span>
+              <span className="quantity-input">{qtyCounter.current}</span>
               <button
                 className="btn btn--primary btn--sm"
                 onClick={() => handleQuantity("INCREMENT")}
