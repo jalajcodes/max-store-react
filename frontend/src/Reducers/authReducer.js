@@ -17,6 +17,8 @@ const authReducer = (state, action) => {
       return { ...state, loading: false, error: action.payload };
     case "USER_LOGOUT":
       localStorage.removeItem("maxStoreUserData");
+      localStorage.removeItem("maxStoreUserCart");
+      localStorage.removeItem("maxStoreUserWishlist");
       return initialUserState;
     default:
       return state;

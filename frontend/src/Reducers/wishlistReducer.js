@@ -29,10 +29,6 @@ const wishlistReducer = (state, action) => {
           (x) => x._id !== action.payload
         ),
       };
-      console.log(
-        "🚀 ~ file: wishlistReducer.js ~ line 27 ~ wishlistReducer ~ newState",
-        newState
-      );
       localStorage.setItem(
         "maxStoreUserWishlist",
         JSON.stringify(newState.wishlistItems)
