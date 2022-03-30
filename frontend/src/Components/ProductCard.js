@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCart } from "../Contexts/cartContext";
 import { useWishlist } from "../Contexts/wishlistContext";
 import { useToast } from "../Contexts/toastContext";
+import { useAuth } from "../Contexts/authContext";
 
 const ProductCard = ({
   productDetails: {
@@ -18,6 +19,7 @@ const ProductCard = ({
 }) => {
   const { addToCart, cartItems } = useCart();
   const { addToast } = useToast();
+  const { isLoggedIn } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const wishlistPage = location.pathname.includes("wishlist");
@@ -34,23 +36,36 @@ const ProductCard = ({
   const isInCart = cartItems.find((item) => item.product === _id);
 
   const handleAddToCart = (id, qty) => {
-    if (isInCart) {
-      navigate("/cart");
-      return;
+    if (isLoggedIn) {
+      if (isInCart) {
+        navigate("/cart");
+        return;
+      }
+      removeFromWishlist(id);
+      addToCart(id, qty);
+      addToast({ type: "success", message: "Item added to cart" });
+    } else {
+      navigate("/auth");
+      addToast({ type: "error", message: "Please login to add items to cart" });
     }
-    removeFromWishlist(id);
-    addToCart(id, qty);
-    addToast({ type: "success", message: "Item added to cart" });
   };
 
   const handleWishlistClick = () => {
-    if (wishlistPage) {
-      addToast({ type: "success", message: "Item removed from wishlist" });
-      removeFromWishlist(_id);
-      return;
+    if (isLoggedIn) {
+      if (wishlistPage) {
+        addToast({ type: "success", message: "Item removed from wishlist" });
+        removeFromWishlist(_id);
+        return;
+      } else {
+        addToWishlist(_id);
+        addToast({ type: "success", message: "Item added to wishlist" });
+      }
     } else {
-      addToWishlist(_id);
-      addToast({ type: "success", message: "Item added to wishlist" });
+      navigate("/auth");
+      addToast({
+        type: "error",
+        message: "Please login to add items to wishlist",
+      });
     }
   };
 
