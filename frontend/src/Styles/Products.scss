@@ -81,4 +81,13 @@
       color: var(--primary);
     }
   }
+
+  .card__buttons {
+    button {
+      margin-right: 0.5rem;
+      i {
+        margin-right: 0;
+      }
+    }
+  }
 }

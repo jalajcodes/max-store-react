@@ -45,7 +45,12 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const value = { userState, authenticateUser, userDispatch };
+  const value = {
+    userState,
+    authenticateUser,
+    userDispatch,
+    isLoggedIn: !!userState.userInfo.token,
+  };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

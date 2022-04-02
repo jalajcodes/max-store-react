@@ -6,6 +6,10 @@ import Home from "./Pages/Home";
 import Profile from "./Pages/Profile";
 import Products from "./Pages/Products";
 import "./Styles/App.scss";
+import { PrivateRoute, RestrictRoute } from "./Components/PrivateRoute";
+import Cart from "./Pages/Cart";
+import Wishlist from "./Pages/Wishlist";
+import NotFound from "./Components/NotFound";
 
 function App() {
   return (
@@ -14,8 +18,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route element={<RestrictRoute />}>
+            <Route path="/auth" element={<Auth />} />
+          </Route>
+          <Route element={<PrivateRoute />}>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/cart" element={<Cart />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
       <ScrollToTop />
