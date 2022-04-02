@@ -89,4 +89,13 @@
       }
     }
   }
+
+  .card__buttons {
+    button {
+      margin-right: 0.3rem;
+      i {
+        margin-right: 0;
+      }
+    }
+  }
 }

@@ -5,15 +5,21 @@ import App from "./App";
 import { ProductProvider } from "./Contexts/productContext";
 import { AuthProvider } from "./Contexts/authContext";
 import { ToastProvider } from "./Contexts/toastContext";
+import { CartProvider } from "./Contexts/cartContext";
+import { WishlistProvider } from "./Contexts/wishlistContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-      <ProductProvider>
-        <ToastProvider>
-          <App />
-        </ToastProvider>
-      </ProductProvider>
+      <CartProvider>
+        <WishlistProvider>
+          <ProductProvider>
+            <ToastProvider>
+              <App />
+            </ToastProvider>
+          </ProductProvider>
+        </WishlistProvider>
+      </CartProvider>
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
