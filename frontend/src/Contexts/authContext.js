@@ -14,6 +14,8 @@ const AuthProvider = ({ children }) => {
           type: "USER_AUTH_REQUEST",
         });
 
+        // todo: add error handling
+
         const payload = {
           email,
           password,
