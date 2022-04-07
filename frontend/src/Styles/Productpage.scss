@@ -1,0 +1,36 @@
+.product-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+  padding: 2rem;
+
+  .product-card {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+    img {
+      display: block;
+    }
+    p {
+      color: rgba(0, 0, 0, 0.5);
+    }
+    .details {
+      padding: 1rem;
+    }
+    .rating {
+      margin-bottom: 1rem;
+    }
+    button {
+      padding: 2rem;
+      font-size: 1rem;
+      margin-right: 1rem;
+    }
+  }
+}

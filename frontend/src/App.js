@@ -11,6 +11,8 @@ import Cart from "./Pages/Cart";
 import Wishlist from "./Pages/Wishlist";
 import NotFound from "./Components/NotFound";
 import SharedCart from "./Pages/SharedCart";
+import ProductPage from "./Pages/Productpage";
+import SearchPage from "./Pages/SearchPage";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/results/:query" element={<SearchPage />} />
           <Route element={<RestrictRoute />}>
             <Route path="/auth" element={<Auth />} />
           </Route>

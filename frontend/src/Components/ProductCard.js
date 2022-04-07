@@ -83,12 +83,12 @@ const ProductCard = ({
           </span>
           <ReactTooltip />
 
-          <Link to="/">
+          <Link to={`/product/${_id}`}>
             <img alt="" className="img-responsive" src={image} />
           </Link>
         </div>
         <div className="card__content">
-          <Link className="card__name" to="/">
+          <Link className="card__name" to={`/product/${_id}`}>
             {name}
           </Link>
           <p>{description}</p>
