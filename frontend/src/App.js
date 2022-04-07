@@ -10,6 +10,7 @@ import { PrivateRoute, RestrictRoute } from "./Components/PrivateRoute";
 import Cart from "./Pages/Cart";
 import Wishlist from "./Pages/Wishlist";
 import NotFound from "./Components/NotFound";
+import SharedCart from "./Pages/SharedCart";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/cart/shared/:encodedIds" element={<SharedCart />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -25,7 +25,7 @@ const Header = () => {
       <nav className="nav">
         <Link to="/">
           <div className="nav__logo">
-            <img src="./images/logo.png" alt="logo" />
+            <img src="/images/logo.png" alt="logo" />
           </div>
         </Link>
         <div className="nav__links">
