@@ -6,6 +6,28 @@
     flex-direction: column;
   }
 
+  .shared-cart-page-cards {
+    display: flex;
+    flex-wrap: wrap;
+    @media (max-width: 700px) {
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      max-width: 20rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+
+      @media (max-width: 700px) {
+        margin: 0 1rem;
+      }
+
+      button {
+        display: none;
+      }
+    }
+  }
+
   &__cards {
     display: flex;
     flex-wrap: wrap;
@@ -33,7 +55,25 @@
     .price-info {
       width: 100%;
       display: flex;
+      flex-wrap: wrap;
       flex-direction: column;
+
+      .share-text {
+        width: 100%;
+        overflow: scroll;
+        border: 1px solid var(--green);
+        background-color: var(--green-light);
+        border-radius: 0.5rem;
+        padding: 1rem;
+        color: var(--green);
+        p:nth-of-type(2) {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          word-break: break-all;
+          word-break: break-word;
+          color: var(--black);
+        }
+      }
 
       .price-info__item {
         display: flex;
@@ -52,6 +92,7 @@
       .price-info__button {
         button {
           width: 100%;
+          margin-bottom: 1rem;
         }
       }
     }

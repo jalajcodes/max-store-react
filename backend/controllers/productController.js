@@ -26,4 +26,16 @@ const getSingleProduct = asyncHandler(async (req, res) => {
   }
 });
 
-export { getProducts, getSingleProduct };
+// @desc    Fetch products from array of ids
+// @route   POST /api/products/ids
+// @access  Public
+const getProductsByIds = asyncHandler(async (req, res) => {
+  if (!req.body.ids) {
+    res.status(400);
+    throw new Error("No ids provided");
+  }
+  const products = await Product.find({ _id: { $in: req.body.ids } });
+  res.json(products);
+});
+
+export { getProducts, getSingleProduct, getProductsByIds };
