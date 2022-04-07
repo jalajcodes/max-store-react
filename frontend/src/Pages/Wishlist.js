@@ -1,8 +1,5 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import NotFound from "../Components/NotFound";
 import ProductCard from "../Components/ProductCard";
-import { useToast } from "../Contexts/toastContext";
 import { useWishlist } from "../Contexts/wishlistContext";
 import "../Styles/Wishlist.scss";
 
