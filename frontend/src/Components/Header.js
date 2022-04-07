@@ -20,6 +20,15 @@ const Header = () => {
     addToast({ type: "success", message: "Logged out successfully" });
   };
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchQuery = e.target.elements.search.value;
+
+    if (!searchQuery.trim()) return;
+
+    navigate(`/results/${searchQuery}`);
+  };
+
   return (
     <header className="header">
       <nav className="nav">
@@ -29,12 +38,12 @@ const Header = () => {
           </div>
         </Link>
         <div className="nav__links">
-          <div className="nav__search">
-            <input type="text" placeholder="Search" />
+          <form className="nav__search" onSubmit={handleSearch}>
+            <input id="search" type="text" placeholder="Search" />
             <button>
               <i className="fas fa-search" />
             </button>
-          </div>
+          </form>
           <Link to="/products" className="nav__link">
             <i className="fa-solid fa-crown" />
             <span className="nav__link--text">Products</span>
