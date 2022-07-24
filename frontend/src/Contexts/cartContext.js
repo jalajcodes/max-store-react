@@ -45,6 +45,7 @@ const CartProvider = ({ children }) => {
 
   const value = {
     cartItems: state.cartItems,
+    shippingAddress: state.shippingAddress,
     cartDispatch,
     addToCart,
     removeFromCart,

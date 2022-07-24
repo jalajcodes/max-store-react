@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Contexts/authContext";
 import { useToast } from "../Contexts/toastContext";
 
@@ -42,6 +42,11 @@ const Profile = () => {
                   <i className="fa-solid fa-right-from-bracket"></i>
                   Logout
                 </button>
+                <Link to="/orders">
+                  <button to="/orders" className="btn btn--sm btn--primary">
+                    My Orders
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

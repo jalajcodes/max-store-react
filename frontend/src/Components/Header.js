@@ -1,4 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../Contexts/authContext";
 import { useCart } from "../Contexts/cartContext";
 import { useToast } from "../Contexts/toastContext";
@@ -7,9 +8,13 @@ import { getPriceInfo } from "../Utils/cartUtils";
 const Header = () => {
   const { userState, userDispatch, isLoggedIn } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const { addToast } = useToast();
   const { cartItems } = useCart();
   const { qty } = getPriceInfo(cartItems);
+  const searchRef = useRef();
+  const navLinks = useRef();
+  const menuIcon = useRef();
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -29,6 +34,15 @@ const Header = () => {
     navigate(`/results/${searchQuery}`);
   };
 
+  const handleMenuClick = (e) => {
+    navLinks.current.classList.toggle("active");
+  };
+
+  useEffect(() => {
+    if (location.pathname.includes("results")) return;
+    searchRef.current.value = "";
+  }, [location.pathname]);
+
   return (
     <header className="header">
       <nav className="nav">
@@ -37,9 +51,14 @@ const Header = () => {
             <img src="/images/logo.png" alt="logo" />
           </div>
         </Link>
-        <div className="nav__links">
+        <div ref={navLinks} className="nav__links">
           <form className="nav__search" onSubmit={handleSearch}>
-            <input id="search" type="text" placeholder="Search" />
+            <input
+              id="search"
+              ref={searchRef}
+              type="text"
+              placeholder="Search"
+            />
             <button>
               <i className="fas fa-search" />
             </button>
@@ -78,13 +97,12 @@ const Header = () => {
             </Link>
           )}
         </div>
-        <div className="theme-switcher">
-          <label className="theme-switcher__label" htmlFor="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <div className="theme-switcher__thumb round" />
-          </label>
-        </div>
-        <div className="nav__menu-icon">
+
+        <div
+          ref={menuIcon}
+          onClick={handleMenuClick}
+          className="nav__menu-icon"
+        >
           <i className="fa-solid fa-bars" />
         </div>
       </nav>

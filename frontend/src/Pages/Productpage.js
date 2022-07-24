@@ -21,7 +21,12 @@ const ProductPage = () => {
     return product._id === id;
   });
 
-  const isInCart = cartItems.find((item) => item.product === product._id);
+  if (!product) {
+    addToast({ type: "error", message: "No Product Found" });
+    navigate("/");
+  }
+
+  const isInCart = cartItems.find((item) => item.product === product?._id);
 
   const handleAddToCart = (id, qty) => {
     if (isLoggedIn) {

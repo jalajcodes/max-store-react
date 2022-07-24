@@ -1,0 +1,55 @@
+.place-order-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  min-height: 90vh;
+  
+  .order-receipt {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    margin: 0 10px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-self: flex-start;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+
+  .col-1 {
+    border-right: 1px solid;
+    padding-right: 1rem;
+    min-width: 25rem;
+
+
+    @media (max-width: 768px) {
+      border: none;
+    }
+  }
+
+  .col-2 {
+    div {
+      padding: .2rem;
+    }
+    span {
+      font-weight: bolder;
+      color: var(--primary)
+    }
+
+    button {
+      margin-top: 2rem;
+      width: 100%;
+    }
+  }
+
+  .summary-items {
+    display: flex;
+    justify-content: space-between;
+  }
+}

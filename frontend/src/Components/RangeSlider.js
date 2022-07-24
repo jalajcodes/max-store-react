@@ -42,7 +42,7 @@ const RangeSlider = ({ min, max, setMin, setMax, onPriceChange }) => {
   }, [setMin, setMax]);
 
   return (
-    <div className="conatainer">
+    <div className="slider-container">
       <input
         type="range"
         min={min}

@@ -87,6 +87,20 @@
           transform: scale(1.5);
         }
       }
+
+      @media (max-width: 600px) {
+        display: grid;
+        place-items: center;
+        span {
+          position: absolute;
+          z-index: 10;
+          opacity: 1;
+        }
+        img {
+          filter: brightness(0.6);
+          transform: scale(1.5);
+        }
+      }
     }
   }
 

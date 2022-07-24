@@ -15,7 +15,7 @@ const PrivateRoute = () => {
 const RestrictRoute = () => {
   const { userState } = useAuth();
 
-  return userState.userInfo.token ? (
+  return userState?.userInfo?.token ? (
     <Navigate to={"/"} replace={true} />
   ) : (
     <Outlet />

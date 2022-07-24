@@ -39,73 +39,21 @@ h2 {
   grid-template-rows: repeat(auto-fill, 24.5rem);
 }
 
-.header {
-  max-height: 100vh;
-
-  .theme-switcher {
-    display: flex;
-    align-items: center;
-
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
-
-    &__label {
-      display: inline-block;
-      height: 2.1rem;
-      position: relative;
-      width: 3.8rem;
-    }
-
-    &__label input {
-      display: none;
-    }
-
-    &__thumb {
-      background-color: #ccc;
-      bottom: 0;
-      cursor: pointer;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      transition: 0.4s;
-    }
-
-    &__thumb:before {
-      background-color: #fff;
-      bottom: 4px;
-      content: "";
-      height: 1.6rem;
-      left: 4px;
-      position: absolute;
-      transition: 0.4s;
-      width: 1.7rem;
-    }
-
-    &__thumb.round {
-      border-radius: 1rem;
-    }
-
-    &__thumb.round:before {
-      border-radius: 50%;
-    }
-
-    input:checked + .theme-switcher__thumb {
-      background-color: var(--primary);
-    }
-
-    input:checked + .theme-switcher__thumb:before {
-      transform: translateX(1.6rem);
-    }
-  }
-}
-
 .nav {
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    padding: .5rem 1rem .5rem .5rem;
+  }
+
   &__logo {
     img {
       width: 12rem;
     }
+  }
+
+  &__menu-icon {
+    font-size: 1.8rem;
   }
 
   .cart-qty {
@@ -237,6 +185,7 @@ footer {
   .subscribe-form,
   .social-media {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
     padding: 0.5rem 0;
   }

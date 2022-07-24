@@ -9,16 +9,25 @@ const SearchPage = () => {
   const { productsList } = useProduct();
 
   const items = productsList.filter((item) => {
-    return item.name.toLowerCase().includes(query.toLowerCase());
+    return (
+      item.name.toLowerCase().includes(query.toLowerCase()) ||
+      item.description.toLowerCase().includes(query.toLowerCase())
+    );
   });
 
   return query.trim() ? (
     <div className="search-page">
-      <h2>Results for "{query}"</h2>
+      <h2>
+        {items.length} Results for "{query}"
+      </h2>
       <div className="container">
-        {items.map((item) => (
-          <ProductCard key={item._id} productDetails={item} />
-        ))}
+        {items.length ? (
+          items.map((item) => (
+            <ProductCard key={item._id} productDetails={item} />
+          ))
+        ) : (
+          <h4>Try searching for something else</h4>
+        )}
       </div>
     </div>
   ) : (

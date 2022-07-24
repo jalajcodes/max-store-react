@@ -1,10 +1,12 @@
 import { Buffer } from "buffer";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getPriceInfo } from "../Utils/cartUtils";
 
 const CartPriceInfo = ({ cartItems }) => {
   const [shareText, setShareText] = useState("");
   const { total, discount, qty } = getPriceInfo(cartItems);
+  const navigate = useNavigate();
 
   const handleShareCart = (items) => {
     setShareText(null);
@@ -19,7 +21,7 @@ const CartPriceInfo = ({ cartItems }) => {
 
   return (
     <div className="cart-page__price-info">
-      <h4>Order Summary ({qty === 1 ? "1 Item" : `${qty} Items`})</h4>
+      <h4>Cart ({qty === 1 ? "1 Item" : `${qty} Items`})</h4>
       <div className="price-info">
         <div className="price-info__item">
           <span> Total Price (MRP) </span>
@@ -36,7 +38,12 @@ const CartPriceInfo = ({ cartItems }) => {
           <span>{total < discount ? total : total - discount}</span>
         </div>
         <div className="price-info__button">
-          <button className="btn btn--primary">Checkout</button>
+          <button
+            onClick={() => navigate("/shipping")}
+            className="btn btn--primary"
+          >
+            Continue
+          </button>
         </div>
         <div className="price-info__button">
           <button

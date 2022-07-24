@@ -11,6 +11,8 @@ const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialProductData);
 
   useEffect(() => {
+    if (state.productsList.length) return;
+
     const fetchData = async () => {
       try {
         const { data } = await axios.get("/api/products");

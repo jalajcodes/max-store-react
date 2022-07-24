@@ -22,6 +22,7 @@
 
       button {
         margin-bottom: 1rem;
+        margin-left: 1rem;
       }
     }
 
@@ -39,6 +40,18 @@
       margin: 1.5rem 0;
       &.price-range {
         margin-bottom: 3rem;
+
+        @media(max-width: 768px) {
+          width: 100%;
+        }
+      }
+
+      &.rating-filter {
+        align-self: flex-start;
+      }
+
+      &.checkbox-container {
+        font-size: .9rem;
       }
     }
   }

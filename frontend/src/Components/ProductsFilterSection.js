@@ -89,7 +89,7 @@ const ProductsFilterSection = () => {
         })}
       </div>
 
-      <div>
+      <div className="rating-filter">
         <h4 className="text-uppercase">Rating</h4>
         {[1, 2, 3, 4, 5].map((rating) => (
           <label key={rating} className="radio-container">

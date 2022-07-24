@@ -7,6 +7,7 @@ import { AuthProvider } from "./Contexts/authContext";
 import { ToastProvider } from "./Contexts/toastContext";
 import { CartProvider } from "./Contexts/cartContext";
 import { WishlistProvider } from "./Contexts/wishlistContext";
+import { OrderProvider } from "./Contexts/orderContext";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,9 +15,11 @@ ReactDOM.render(
       <CartProvider>
         <WishlistProvider>
           <ProductProvider>
-            <ToastProvider>
-              <App />
-            </ToastProvider>
+            <OrderProvider>
+              <ToastProvider>
+                <App />
+              </ToastProvider>
+            </OrderProvider>
           </ProductProvider>
         </WishlistProvider>
       </CartProvider>

@@ -13,6 +13,10 @@ import NotFound from "./Components/NotFound";
 import SharedCart from "./Pages/SharedCart";
 import ProductPage from "./Pages/Productpage";
 import SearchPage from "./Pages/SearchPage";
+import ShippingScreen from "./Pages/ShippingScreen";
+import PlaceOrder from "./Pages/PlaceOrder";
+import OrderPlaced from "./Pages/OrderPlaced";
+import Orders from "./Pages/Orders";
 
 function App() {
   return (
@@ -31,6 +35,10 @@ function App() {
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/cart/shared/:encodedIds" element={<SharedCart />} />
+            <Route path="/shipping" element={<ShippingScreen />} />
+            <Route path="/placeorder" element={<PlaceOrder />} />
+            <Route path="/order-placed" element={<OrderPlaced />} />
+            <Route path="/orders" element={<Orders />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

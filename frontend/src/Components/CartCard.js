@@ -1,7 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCart } from "../Contexts/cartContext";
-import { useAuth } from "../Contexts/authContext";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { useToast } from "../Contexts/toastContext";
 import "./Styles/cartCard.scss";
 import { useWishlist } from "../Contexts/wishlistContext";

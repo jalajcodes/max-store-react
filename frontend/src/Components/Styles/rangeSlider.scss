@@ -44,11 +44,15 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.slider-container {
+  position: relative;
+}
+
 .thumb {
   pointer-events: none;
   position: absolute;
   height: 0;
-  width: 90%;
+  width: 100%;
   outline: none;
   &--zindex-3 {
     z-index: 3;

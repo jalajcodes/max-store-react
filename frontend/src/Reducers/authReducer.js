@@ -19,7 +19,7 @@ const authReducer = (state, action) => {
       localStorage.removeItem("maxStoreUserData");
       localStorage.removeItem("maxStoreUserCart");
       localStorage.removeItem("maxStoreUserWishlist");
-      return initialUserState;
+      return { userInfo: null, loading: false, error: null };
     default:
       return state;
   }
