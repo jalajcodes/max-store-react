@@ -21,11 +21,6 @@ const ProductPage = () => {
     return product._id === id;
   });
 
-  if (!product) {
-    addToast({ type: "error", message: "No Product Found" });
-    navigate("/");
-  }
-
   const isInCart = cartItems.find((item) => item.product === product?._id);
 
   const handleAddToCart = (id, qty) => {
@@ -66,7 +61,11 @@ const ProductPage = () => {
     <section className="product-section">
       <div className="product-card">
         <div className="image">
-          <img src={product.image} alt={`${product.name}`} />
+          <img
+            src={product.image}
+            alt={`${product.name}`}
+            className="product-image"
+          />
         </div>
         <div className="details">
           <h1>{product.name} </h1>
